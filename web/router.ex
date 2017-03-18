@@ -20,7 +20,8 @@ defmodule UasStatusNotifications.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", UasStatusNotifications do
-  #   pipe_through :api
-  # end
+  scope "/api", UasStatusNotifications do
+    pipe_through :api
+    resources "/notifications", NotificationController, except: [:new, :edit]
+  end
 end
